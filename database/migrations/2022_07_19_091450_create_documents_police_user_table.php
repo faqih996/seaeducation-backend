@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('doc_name')->nullable();
             $table->string('slug')->nullable();
-            $table->foreignId('users_id')->nullable()->index('fk_documents_to_users');
+            $table->foreignId('users_id')->nullable()->index('fk_documents_police_to_users');
             $table->string('police_type')->nullable();
             $table->string('place_issued')->nullable();
             $table->date('issued_date')->nullable();

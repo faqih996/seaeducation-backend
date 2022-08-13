@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('training_type')->nullable();
             $table->string('training_facility')->nullable();
             $table->string('slug')->nullable();
-            $table->foreignId('users_id')->nullable()->index('fk_documents_to_users');
+            $table->foreignId('users_id')->nullable()->index('fk_documents_stcw_to_users');
             $table->string('place_issued')->nullable();
             $table->string('docs_number')->nullable();
             $table->date('issued_date')->nullable();
