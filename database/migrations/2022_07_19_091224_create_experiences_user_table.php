@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('experience_user', function (Blueprint $table) {
+        Schema::create('experiences_user', function (Blueprint $table) {
             $table->id();
             $table->string('work_institution_name');
             $table->string('base')->nullable();

@@ -13,19 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('emergency_user', function (Blueprint $table) {
+        Schema::create('educations_user', function (Blueprint $table) {
             $table->id();
-            $table->string('family_name')->nullable();
-            $table->string('relations')->nullable();
-            $table->foreignId('detail_user_id')->nullable()->index('fk_emergency_to_detail_user');
-            $table->string('contact1')->nullable();
-            $table->string('contact2')->nullable();
-            $table->string('email')->nullable();
+            $table->string('edu_institution_name')->nullable();
+            $table->string('slug')->nullable();
+            $table->foreignId('detail_user_id')->nullable()->index('fk_education_to_detail_user');
+            $table->string('course')->nullable();
+            $table->string('degree')->nullable();
+            $table->date('start_date')->nullable();
+            $table->date('graduate_date')->nullable();
             $table->longText('address')->nullable();
             $table->string('city')->nullable();
             $table->string('province')->nullable();
             $table->string('country')->nullable();
             $table->string('zip_code')->nullable();
+            $table->string('certificate')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
@@ -39,6 +41,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('emergency_user');
+        Schema::dropIfExists('education_user');
     }
 };
