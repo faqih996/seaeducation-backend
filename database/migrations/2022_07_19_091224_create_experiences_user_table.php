@@ -25,10 +25,10 @@ return new class extends Migration
             $table->longText('address')->nullable();
             $table->string('city')->nullable();
             $table->string('province')->nullable();
-            $table->integer('zip_code')->nullable();
+            $table->string('zip_code')->nullable();
             $table->string('country')->nullable();
             $table->string('spv_name')->nullable();
-            $table->integer('institution_phone')->nullable();
+            $table->string('institution_phone')->nullable();
             $table->string('job_descriptions')->nullable();
             $table->string('certificate')->nullable();
 
