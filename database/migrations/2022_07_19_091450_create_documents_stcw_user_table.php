@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('documents_visa_user', function (Blueprint $table) {
+        Schema::create('documents_stcw_user', function (Blueprint $table) {
             $table->id();
             $table->string('doc_name')->nullable();
             $table->string('training_type')->nullable();
@@ -38,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('documents_visa_user');
+        Schema::dropIfExists('documents_stcw_user');
     }
 };
