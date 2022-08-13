@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('family_name')->nullable();
             $table->string('relations')->nullable();
-            $table->foreignId('detail_user_id')->nullable()->index('fk_emergency_to_detail_user');
+            $table->foreignId('details_user_id')->nullable()->index('fk_emergencies_to_details_user');
             $table->string('contact1')->nullable();
             $table->string('contact2')->nullable();
             $table->string('email')->nullable();
