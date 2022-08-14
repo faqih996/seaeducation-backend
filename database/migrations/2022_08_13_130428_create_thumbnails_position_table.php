@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('thumbnails_position', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('position_id')->nullable()->index('fk_position_id_to_thumbnail_position');
+            $table->foreignId('positions_id')->nullable()->index('fk_thumbnails_position_to_positions');
             $table->string('thumbnail');
             $table->softDeletes();
             $table->timestamps();

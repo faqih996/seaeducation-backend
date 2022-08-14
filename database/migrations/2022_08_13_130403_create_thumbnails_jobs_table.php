@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('thumbnails_jobs', function (Blueprint $table) {
+        Schema::create('thumbnails_job', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('jobs_id')->nullable()->index('fk_thumbnails_job_to_jobs');
+            $table->string('thumbnail');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('thumbnails_jobs');
+        Schema::dropIfExists('thumbnails_job');
     }
 };

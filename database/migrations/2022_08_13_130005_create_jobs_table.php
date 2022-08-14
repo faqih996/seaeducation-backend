@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->foreignId('department_id')->nullable()->index('fk_department_id_to_job');
-            $table->foreignId('position_id')->nullable()->index('fk_position_id_to_job');
+            $table->foreignId('users_id')->nullable()->index('fk_jobs_to_users');
+            $table->foreignId('departments_id')->nullable()->index('fk_jobs_to_departments');
+            $table->foreignId('positions_id')->nullable()->index('fk_jobs_to_positions');
             $table->string('slug');
             $table->string('placement')->nullable();
             $table->string('detail')->nullable();

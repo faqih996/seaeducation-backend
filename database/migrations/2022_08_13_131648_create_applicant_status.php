@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('aplicant_status', function (Blueprint $table) {
+        Schema::create('applicant_status', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->softDeletes();

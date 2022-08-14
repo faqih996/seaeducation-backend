@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('thumbnails_job', function (Blueprint $table) {
-            //
+            $table->foreign('jobs_id', 'fk_thumbnails_jobs_to_users')->references('id')
+            ->on('jobs')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -26,7 +27,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('thumbnails_job', function (Blueprint $table) {
-            //
+            $table->dropForeign('fk_jobs_to_users');
         });
     }
 };
