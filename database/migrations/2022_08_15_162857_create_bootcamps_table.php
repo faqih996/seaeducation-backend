@@ -13,15 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jobs', function (Blueprint $table) {
+        Schema::create('bootcamps', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->foreignId('users_id')->nullable()->index('fk_jobs_to_users');
-            $table->foreignId('departments_id')->nullable()->index('fk_jobs_to_departments');
-            $table->foreignId('positions_id')->nullable()->index('fk_jobs_to_positions');
-            $table->string('slug');
-            $table->string('placement')->nullable();
-            $table->string('detail')->nullable();
+            $table->string('slug')->nullable();
+            $table->string('type')->nullable();
+            $table->bigInteger('location_id')->unsigned();
+            $table->string('duration')->nullable();
+            $table->integer('price');
+            $table->boolean('status')->default(1);
+            $table->date('camp_regis_date')->nullable();
+            $table->date('camp_start')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -34,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jobs');
+        Schema::dropIfExists('bootcamps');
     }
 };

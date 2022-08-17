@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('thumbnails_job', function (Blueprint $table) {
-            $table->foreign('jobs_id', 'fk_thumbnails_jobs_to_users')->references('id')
-            ->on('jobs')->onUpdate('CASCADE')->onDelete('CASCADE');
+        Schema::create('bootcamp_thumbnails', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('bootcamp_id')->unsigned();
+            $table->string('thumbnail')->nullable();
+            $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -26,8 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('thumbnails_job', function (Blueprint $table) {
-            $table->dropForeign('fk_jobs_to_users');
-        });
+        Schema::dropIfExists('bootcamp_thumbnails');
     }
 };

@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jobs_status', function (Blueprint $table) {
+        Schema::create('bootcamp_benefits', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignId('bootcamp_id')->constrained('bootcamps')->onDelete('cascade');
+            $table->string('name')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jobs_status');
+        Schema::dropIfExists('bootcamp_benefits');
     }
 };

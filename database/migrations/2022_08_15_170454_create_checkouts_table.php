@@ -13,11 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('thumbnails_job', function (Blueprint $table) {
+        Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('jobs_id')->nullable()->index('fk_thumbnails_job_to_jobs');
-            $table->string('thumbnail');
+            $table->foreignId('user_id')->constraint();
+            $table->foreignId('bootcamp_id')->constraint();
+            $table->string('card_number', 20);
+            $table->date('expired');
+            $table->string('cvv', 3);
+            $table->boolean('is_paid')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('thumbnails_job');
+        Schema::dropIfExists('checkouts');
     }
 };

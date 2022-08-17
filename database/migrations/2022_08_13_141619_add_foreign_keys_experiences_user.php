@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('experiences_user', function (Blueprint $table) {
-            $table->foreign('details_user_id', 'fk_experiences_user_to_details_user')->references('id')
-            ->on('details_user')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('detail_user_id', 'fk_experiences_user_to_detail_users')->references('id')
+            ->on('detail_users')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -27,7 +27,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('experiences_user', function (Blueprint $table) {
-            $table->dropForeign('fk_experiences_user_to_details_user');
+            $table->dropForeign('fk_experiences_user_to_detail_users');
         });
     }
 };

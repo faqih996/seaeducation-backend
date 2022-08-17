@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('edu_institution_name')->nullable();
             $table->string('slug')->nullable();
-            $table->foreignId('details_user_id')->nullable()->index('fk_educations_to_details_user');
+            $table->foreignId('detail_user_id')->nullable()->index('fk_educations_to_detail_users');
             $table->string('course')->nullable();
             $table->string('degree')->nullable();
             $table->date('start_date')->nullable();

@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('doc_name')->nullable();
             $table->string('clinic_name')->nullable();
             $table->string('slug')->nullable();
-            $table->foreignId('users_id')->nullable()->index('fk_documents_med_user_to_users');
+            $table->foreignId('user_id')->nullable()->index('fk_documents_med_user_to_users');
             $table->string('place_issued')->nullable();
             $table->date('issued_date')->nullable();
             $table->date('expired_date')->nullable();
-            $table->string('docs_status')->nullable();
+            $table->boolean('docs_status')->default(false);
             $table->string('certificate')->nullable();
             $table->softDeletes();
             $table->timestamps();

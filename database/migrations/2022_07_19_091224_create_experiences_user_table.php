@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('work_institution_name');
             $table->string('base')->nullable();
-            $table->foreignId('details_user_id')->nullable()->index('fk_experiences_user_to_details_user');
+            $table->foreignId('detail_user_id')->nullable()->index('fk_experiences_user_to_detail_users');
             $table->string('position')->nullable();
             $table->string('job_title')->nullable();
             $table->date('start_date')->nullable();

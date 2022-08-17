@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('thumbnails_department', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('departments_id')->nullable()->index('fk_thumbnails_department_to_departments');
-            $table->string('thumbnail');
+            $table->bigInteger('departments_id')->nullable()->unsigned();
+            $table->string('thumbnail')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

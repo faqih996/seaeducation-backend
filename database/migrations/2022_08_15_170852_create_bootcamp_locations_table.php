@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('departments', function (Blueprint $table) {
-            $table->foreign('users_id', 'fk_departments_to_users')->references('id')
-            ->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
+        Schema::create('bootcamp_locations', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->nullable();
+            $table->boolean('status')->default(1);
+            $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -26,8 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('departments_user', function (Blueprint $table) {
-            $table->dropForeign('fk_departments_to_users');
-        });
+        Schema::dropIfExists('bootcamp_locations');
     }
 };
