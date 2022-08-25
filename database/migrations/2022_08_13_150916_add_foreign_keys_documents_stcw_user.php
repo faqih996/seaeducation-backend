@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('documents_stcw_user', function (Blueprint $table) {
-            $table->foreign('users_id', 'fk_documents_stcw_to_users')->references('id')
+            $table->foreign('user_id', 'fk_documents_stcw_to_users')->references('id')
             ->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }

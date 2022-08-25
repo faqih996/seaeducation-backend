@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('educations_user', function (Blueprint $table) {
             $table->foreign('detail_user_id', 'fk_educations_to_detail_users')->references('id')
-            ->on('detail_user_id')->onUpdate('CASCADE')->onDelete('CASCADE');
+            ->on('detail_users')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
