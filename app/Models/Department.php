@@ -12,7 +12,7 @@ class Department extends Model
     protected $fillable =
     [
         'name',
-        'users_id',
+        'user_id',
         'slug',
         'status'
     ];

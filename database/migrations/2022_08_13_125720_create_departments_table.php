@@ -19,6 +19,7 @@ return new class extends Migration
             $table->bigInteger('user_id')->nullable()->unsigned();
             $table->string('slug');
             $table->string('status')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->softDeletes();
             $table->timestamps();
         });

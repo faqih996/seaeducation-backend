@@ -11,8 +11,8 @@ class Position extends Model
 
     protected $fillable =
     [
-        'users_id',
-        'departments_id',
+        'user_id',
+        'department_id',
         'name',
         'slug',
         'status',
