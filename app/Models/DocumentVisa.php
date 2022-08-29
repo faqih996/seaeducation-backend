@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DocumentSeamanBook extends Model
+class DocumentVisa extends Model
 {
     use HasFactory;
 
     protected $fillable =
     [
         'doc_name',
-        'slug',
         'user_id',
+        'slug',
         'docs_number',
         'place_issued',
         'issued_date',

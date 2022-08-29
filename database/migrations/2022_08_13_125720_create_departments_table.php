@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('users_id')->nullable()->unsigned();
+            $table->bigInteger('user_id')->nullable()->unsigned();
             $table->string('slug');
             $table->string('status')->nullable();
             $table->softDeletes();

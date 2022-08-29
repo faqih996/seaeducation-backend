@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('positions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('users_id')->nullable()->index('fk_positions_to_users');
+            $table->foreignId('user_id')->nullable()->index('fk_positions_to_users');
             $table->bigInteger('departments_id')->nullable()->unsigned();
             $table->string('name')->nullable();
             $table->string('slug')->nullable();

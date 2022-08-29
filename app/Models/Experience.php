@@ -5,24 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Education extends Model
+class Experience extends Model
 {
     use HasFactory;
 
     protected $fillable =
     [
-        'edu_institution_name',
-        'slug',
+        'work_institution_name',
+        'base',
         'detail_user_id',
-        'course',
-        'degree',
+        'position',
+        'job_title',
         'start_date',
-        'graduate_date',
+        'end_date',
         'address',
         'city',
         'province',
         'country',
         'zip_code',
+        'spv_name',
+        'institution_phone',
+        'job_descriptions',
         'certificate'
     ];
 
