@@ -14,4 +14,11 @@ class thumbnails_position extends Model
         'position_id',
         'thumbnail'
     ];
+
+    protected $hidden =
+    [
+        'deleted_at',
+        'created_at',
+        'updated_at'
+    ];
 }

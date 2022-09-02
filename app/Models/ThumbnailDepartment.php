@@ -14,4 +14,11 @@ class thumbnails_department extends Model
         'department_id',
         'thumbnail'
     ];
+
+    protected $hidden =
+    [
+        'deleted_at',
+        'created_at',
+        'updated_at'
+    ];
 }
