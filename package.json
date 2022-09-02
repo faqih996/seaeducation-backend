@@ -17,6 +17,7 @@
         "vite": "^2.9.11"
     },
     "dependencies": {
-        "latest-version": "^7.0.0"
+        "latest-version": "^7.0.0",
+        "sweetalert2": "^11.4.29"
     }
 }
