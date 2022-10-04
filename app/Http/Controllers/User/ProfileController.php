@@ -2,21 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\Profile\UpdateProfileRequest;
+use App\Http\Requests\Profile\UpdateDetailUserRequest;
 
-use App\Http\Requests\ProfileRequest;
-use App\Http\Requests\UpdateDetailUserRequest;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
+use Auth;
+use File;
 
 use App\Models\User;
 use App\Models\DetailUser;
+use App\Models\Experience;
+use App\Models\Education;
+use App\Models\Emergency;
 
 class ProfileController extends Controller
 {
+    public function _construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -156,6 +165,11 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+    {
+        //
+    }
+
+    public function delete($id)
     {
         //
     }

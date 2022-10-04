@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -17,7 +16,11 @@ return new class extends Migration
             $table->id();
             $table->string('edu_institution_name')->nullable();
             $table->string('slug')->nullable();
-            $table->foreignId('detail_user_id')->nullable()->index('fk_educations_to_detail_users');
+            $table
+                ->foreignId('detail_user_id')
+                ->references('id')
+                ->on('detail_users')
+                ->onDelete('cascade');
             $table->string('course')->nullable();
             $table->string('degree')->nullable();
             $table->date('start_date')->nullable();
