@@ -38,6 +38,15 @@ class CreateNewUser implements CreatesNewUsers
                 'password' => Hash::make($input['password']),
             ]), function (User $user) {
                 $this->createTeam($user);
+
+                //add to detail user
+                $detail_user = new DetailUser;
+                $detail_user->user_id = $user->id;
+                $detail_user->photo = NULL;
+                $detail_user->skype = NULL;
+                $detail_user->phone_number = NULL;
+                $detail_user->about_me = NULL;
+                $detail_user->save();
             });
         });
     }
