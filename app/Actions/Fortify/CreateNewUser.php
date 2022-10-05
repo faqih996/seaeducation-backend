@@ -42,10 +42,10 @@ class CreateNewUser implements CreatesNewUsers
                 //add to detail user
                 $detail_user = new DetailUser;
                 $detail_user->user_id = $user->id;
-                $detail_user->photo = NULL;
-                $detail_user->skype = NULL;
-                $detail_user->phone_number = NULL;
-                $detail_user->about_me = NULL;
+                $detail_user->photo = null;
+                $detail_user->skype = null;
+                $detail_user->phone_number = null;
+                $detail_user->about_me = null;
                 $detail_user->save();
             });
         });

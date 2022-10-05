@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -20,8 +19,11 @@ return new class extends Migration
             $table->string('type')->nullable();
             $table->bigInteger('location_id')->unsigned();
             $table->string('duration')->nullable();
-            $table->integer('price');
-            $table->boolean('status')->default(1);
+            $table->string('price')->nullable();
+            $table
+                ->boolean('status')
+                ->default(1)
+                ->nullable();
             $table->date('camp_regis_date')->nullable();
             $table->date('camp_start')->nullable();
             $table->softDeletes();

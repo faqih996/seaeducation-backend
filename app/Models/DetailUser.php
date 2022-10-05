@@ -9,8 +9,9 @@ class DetailUser extends Model
 {
     use HasFactory;
 
-    protected $fillable =
-    [
+    public $table = 'detail_user';
+
+    protected $fillable = [
         'photo',
         'user_id',
         'birth_place',
@@ -25,15 +26,10 @@ class DetailUser extends Model
         'province',
         'zip_code',
         'country',
-        'skype'
+        'skype',
     ];
 
-    protected $hidden =
-    [
-        'deleted_at',
-        'created_at',
-        'updated_at'
-    ];
+    protected $hidden = ['deleted_at', 'created_at', 'updated_at'];
 
     public function user()
     {

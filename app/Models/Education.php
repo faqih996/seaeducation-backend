@@ -4,13 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\softDeletes;
 
 class Education extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
-    protected $fillable =
-    [
+    public $table = 'educations_user';
+
+    protected $fillable = [
         'edu_institution_name',
         'slug',
         'detail_user_id',
@@ -23,15 +26,10 @@ class Education extends Model
         'province',
         'country',
         'zip_code',
-        'certificate'
+        'certificate',
     ];
 
-    protected $hidden =
-    [
-        'deleted_at',
-        'created_at',
-        'updated_at'
-    ];
+    protected $hidden = ['deleted_at', 'created_at', 'updated_at'];
 
     public function DetailUser()
     {

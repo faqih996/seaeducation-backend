@@ -4,28 +4,28 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\softDeletes;
 
 class Bootcamp extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+
+    public $table = 'bootcamps';
 
     protected $fillable = [
-        'title',   
-        'slug',   
-        'type',   
-        'location_id',   
-        'duration',   
-        'price',   
-        'status',   
-        'camp_regis_date',   
-        'camp_start',   
+        'title',
+        'slug',
+        'type',
+        'location_id',
+        'duration',
+        'price',
+        'status',
+        'camp_regis_date',
+        'camp_start',
     ];
 
-    protected $hidden = [
-        'deleted_at',
-        'created_at',
-        'updated_at',
-    ];
+    protected $hidden = ['deleted_at', 'created_at', 'updated_at'];
 
     public function benefits()
     {
