@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Dashboard\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Checkout;
 use App\Models\Bootcamp;
 use Illuminate\Http\Request;
-
 
 class CheckoutController extends Controller
 {
@@ -28,7 +27,7 @@ class CheckoutController extends Controller
     public function create(Bootcamp $bootcamp)
     {
         return view('checkout', [
-            'Bootcamp' => $bootcamp
+            'Bootcamp' => $bootcamp,
         ]);
     }
 

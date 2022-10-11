@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->string('type')->nullable();
+            $table->string('user_id')->nullable();
             $table->bigInteger('location_id')->unsigned();
             $table->string('duration')->nullable();
             $table->string('price')->nullable();

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Dashboard;
+namespace App\Http\Requests\Dashboard\Admin;
 
 use App\Models\Bootcamp;
 use Illuminate\Foundation\Http\FormRequest;
@@ -29,6 +29,7 @@ class BootcampRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:255'],
             'type' => ['required', 'string', 'max:255'],
+            'user_id' => ['string', 'max:255'],
             'location_id' => ['required', 'integer', 'max:255'],
             'duration' => ['required', 'string', 'max:255'],
             'price' => ['required', 'string', 'max:255'],

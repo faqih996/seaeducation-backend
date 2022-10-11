@@ -15,6 +15,7 @@ class Bootcamp extends Model
 
     protected $fillable = [
         'title',
+        'user_id',
         'slug',
         'type',
         'location_id',
