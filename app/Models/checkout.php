@@ -23,4 +23,10 @@ class Checkout extends Model
     ];
 
     protected $hidden = ['deleted_at', 'created_at', 'updated_at'];
+
+    #set Expired
+    public function setExpiredAttribute($value)
+    {
+        $this->attributes['expired'] = date('Y-m-t', strotime($value));
+    }
 }

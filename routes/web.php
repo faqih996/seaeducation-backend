@@ -19,14 +19,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('checkout/{bootcamp:slug}', [CheckoutController::class, 'create'])->name('checkout.create');
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
+    'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('checkout/{bootcamp:slug}', [
+    CheckoutController::class,
+    'create',
+])->name('checkout.create');
+Route::post('checkout/{bootcamp}', [CheckoutController::class, 'store'])->name(
+    'checkout.store'
+);

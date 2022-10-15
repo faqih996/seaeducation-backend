@@ -3,12 +3,27 @@
 namespace App\Http\Controllers\Dashboard\User;
 
 use App\Http\Controllers\Controller;
+
+use App\Http\Requests\Dashboard\Admin\CheckoutRequest;
+use Illuminate\Http\Request;
+
+use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+
+use Auth;
+use File;
+
 use App\Models\Checkout;
 use App\Models\Bootcamp;
-use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +31,7 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -26,7 +41,7 @@ class CheckoutController extends Controller
      */
     public function create(Bootcamp $bootcamp)
     {
-        return view('checkout', [
+        return view('checkout.index', [
             'Bootcamp' => $bootcamp,
         ]);
     }
@@ -37,9 +52,18 @@ class CheckoutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CheckoutRequest $request, Bootcamp $bootcamp)
     {
-        //
+        $data = $request->all();
+        $data['user_id'] = Auth::user();
+        $data['bootcamp_id'] = $bootcamp->id;
+
+        $detail_user = Auth::user();
+        $detail_user->save();
+
+        $checkout = Checkout::create($data);
+
+        return redirect(route('checkout.success'));
     }
 
     /**
@@ -50,7 +74,7 @@ class CheckoutController extends Controller
      */
     public function show(Checkout $checkout)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -61,7 +85,7 @@ class CheckoutController extends Controller
      */
     public function edit(Checkout $checkout)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -73,7 +97,7 @@ class CheckoutController extends Controller
      */
     public function update(Request $request, Checkout $checkout)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -84,6 +108,6 @@ class CheckoutController extends Controller
      */
     public function destroy(Checkout $checkout)
     {
-        //
+        return abort(404);
     }
 }

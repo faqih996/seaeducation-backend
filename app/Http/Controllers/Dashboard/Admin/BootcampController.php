@@ -36,7 +36,7 @@ class BootcampController extends Controller
     {
         $Bootcamp = Bootcamp::Orderby('created_at', 'desc')->get();
 
-        return view('pages.dashboard.bootcamp.index', compact('bootcamp'));
+        return view('pages.bootcamp.index', compact('bootcamp'));
     }
 
     /**
@@ -83,7 +83,7 @@ class BootcampController extends Controller
         }
 
         toast()->success('Save has been success');
-        return redirect()->route('pages.dashboard.bootcamp.index');
+        return redirect()->route('pages.bootcamp.index');
     }
 
     /**
@@ -191,7 +191,7 @@ class BootcampController extends Controller
         }
 
         toast()->success('Update has been success');
-        return redirect()->route('pages.dashboard.bootcamp.index');
+        return redirect()->route('pages.bootcamp.index');
     }
 
     /**
