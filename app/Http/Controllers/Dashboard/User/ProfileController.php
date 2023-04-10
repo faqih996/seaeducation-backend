@@ -108,7 +108,7 @@ class ProfileController extends Controller
     {
         $data_user = User::where('id', Auth::user()->id)->first();
 
-        // $data_detail_user = DetailUser::findOrFail($id);
+        $data_detail_user = DetailUser::findOrFail($id);
 
         $experience_user = ExperienceUser::where(
             'detail_user_id',
@@ -138,10 +138,10 @@ class ProfileController extends Controller
         return view(
             'pages.profile.edit',
             compact(
-                'data_user',
-                'experience_user',
-                'education_user',
-                'emergency_user'
+                'data_user'
+                // 'experience_user',
+                // 'education_user',
+                // 'emergency_user'
             )
         );
     }
@@ -153,9 +153,22 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(
+        UpdateProfileRequest $profileRequest,
+        UpdateDetailUserRequest $requestdetailuser
+    ) {
+        $data_user = $profileRequest->all();
+        $data_detail_user = $requestdetailuser->all();
+
+        // process save to user
+        $user = User::find(Auth::user()->id);
+        $user->update($data_user);
+
+        // process save to Detail User
+        $detail_user = DetailUser::find($user->detail_user->id);
+        $detail_user->update($data_detail_user);
+
+        return redirect()->route('profile.index');
     }
 
     /**
